@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import styles from "../styles/Front.module.css";
+import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
