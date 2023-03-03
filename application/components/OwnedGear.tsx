@@ -62,6 +62,7 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
               width={256}
               height={256}
             />
+            <h3>Player 1's Room</h3>
             <h3>PIN: 357</h3>
           </div>
         ))}
