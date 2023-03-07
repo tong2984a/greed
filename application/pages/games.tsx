@@ -7,7 +7,7 @@ import {
 import React from "react";
 import CurrentGear from "../components/CurrentGear";
 import LoadingSection from "../components/LoadingSection";
-import OwnedGear from "../components/OwnedGear";
+import OwnedGames from "../components/OwnedGames";
 import Rewards from "../components/Rewards";
 import Shop from "../components/Shop";
 import {
@@ -34,26 +34,25 @@ export default function Play() {
 
   return (
     <div className={styles.container}>
-      {pickaxeContract && tokenContract ? (
-        <>
-          <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>All Games and Winners</h2>
-          <div
-            style={{
-              width: "100%",
-              minHeight: "10rem",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 8,
-            }}
-          >
-            <Shop pickaxeContract={pickaxeContract} />
-          </div>
-        </>
-      ) : (
-        <LoadingSection />
-      )}
+      <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>
+        Your Games
+      </h2>
+      <div
+        style={{
+          width: "100%",
+          minHeight: "10rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 8,
+        }}
+      >
+        <OwnedGames
+          pickaxeContract={pickaxeContract}
+          miningContract={miningContract}
+        />
+      </div>
     </div>
   );
 }

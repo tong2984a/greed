@@ -21,9 +21,9 @@ const Home: NextPage = () => {
       </button>
       <button
         className={`${styles.mainButton} ${styles.spacerBottom}`}
-        onClick={() => router.push(`/pay`)}
+        onClick={() => router.push(`/games`)}
       >
-        Pay Winners
+        Pay Followers
       </button>
     </div>
   );
