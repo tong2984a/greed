@@ -15,9 +15,15 @@ const Home: NextPage = () => {
       </button>
       <button
         className={`${styles.mainButton} ${styles.spacerBottom}`}
-        onClick={() => router.push(`/play`)}
+        onClick={() => router.push(`/claim`)}
       >
-        獎勵和認可
+        Claim Rewards
+      </button>
+      <button
+        className={`${styles.mainButton} ${styles.spacerBottom}`}
+        onClick={() => router.push(`/pay`)}
+      >
+        Pay Winners
       </button>
     </div>
   );

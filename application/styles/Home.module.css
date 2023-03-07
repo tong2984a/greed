@@ -4,6 +4,11 @@
   left: 5%;
 }
 
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .smallMargin {
   margin: 4px;
 }

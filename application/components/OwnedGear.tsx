@@ -27,6 +27,38 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
     pickaxeContract,
     address
   );
+  const tournaments = [{
+    metadata: {
+      id: 1,
+      image: "/splatoon3.jpg",
+      title: "EREN's Room",
+      pin: 'PIN: 357',
+    },
+  }, {
+    metadata: {
+      id: 2,
+      image: "/pubg.jpg",
+      title: "flamincat's Room",
+      pin: '0.08 USDC',
+      button: 'Claim',
+    },
+  }, {
+    metadata: {
+      id: 3,
+      image: "/lol.jpg",
+      title: "AnEnderNon's Room",
+      pin: '1.02 MATIC',
+      button: 'Claim',
+    },
+  }, {
+    metadata: {
+      id: 4,
+      image: "/apex.jpg",
+      title: "justinjohn-03's Room",
+      pin: '1 FIRE',
+      button: 'Claim',
+    }
+  }];
 
   if (isLoading) {
     return <LoadingSection />;
@@ -54,16 +86,28 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
   return (
     <>
       <div className={styles.nftBoxGrid}>
-        {ownedPickaxes?.map((p) => (
+        {tournaments?.map((p) => (
           <div className={styles.nftBox} key={p.metadata.id.toString()}>
             <Image
-              src="/splatoon3.jpg"
-              className={`${styles.nftMedia} ${styles.spacerTop}`}
+              src={p.metadata.image}
+              className={`${styles.nftMedia} ${styles.spacerTop} ${p.metadata.button && styles.grayscale}`}
               width={256}
               height={256}
             />
-            <h3>Player 1's Room</h3>
-            <h3>PIN: 357</h3>
+            <h3>{p.metadata.title}</h3>
+            <h3>{p.metadata.pin}</h3>
+
+            <div className={styles.smallMargin}>
+              {p.metadata.button &&
+                <Web3Button
+                  colorMode="dark"
+                  contractAddress={MINING_CONTRACT_ADDRESS}
+                  action={() => equip(p.metadata.id)}
+                >
+                  Claim
+                </Web3Button>
+              }
+            </div>
           </div>
         ))}
       </div>

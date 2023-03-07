@@ -19,7 +19,11 @@ export default function Shop({ pickaxeContract }: Props) {
       metadata: {
         id: 1,
         name: "ax",
-        url: "/pikachu.gif",
+        url: "/penguin.gif",
+        game: "Splatoon3",
+        date: "Jan 2, 2023",
+        payout: "1 FIRE",
+        paid: true,
       },
     },
     {
@@ -27,13 +31,19 @@ export default function Shop({ pickaxeContract }: Props) {
         id: 2,
         name: "boo",
         url: "/cow.gif",
+        game: "Splatoon3",
+        date: "Feb 20, 2023",
+        payout: "0.2 MATIC",
       },
     },
     {
       metadata: {
         id: 3,
         name: "caremy",
-        url: "/frog.gif",
+        url: "/duck.gif",
+        game: "PUBG",
+        date: "Feb 21, 2023",
+        payout: "0.14 USDC",
       },
     },
     {
@@ -41,6 +51,9 @@ export default function Shop({ pickaxeContract }: Props) {
         id: 4,
         name: "daffie",
         url: "/cute-girl.gif",
+        game: "APEX",
+        date: "Feb 22, 2023",
+        payout: "2 FIRE",
       },
     },
   ];
@@ -53,6 +66,10 @@ export default function Shop({ pickaxeContract }: Props) {
             pickaxeContract={pickaxeContract}
             item={p}
             url={p.metadata.url}
+            game={p.metadata.game}
+            date={p.metadata.date}
+            payout={p.metadata.payout}
+            paid={p.metadata.paid}
             key={p.metadata.id.toString()}
           />
         ))}
