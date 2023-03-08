@@ -17,9 +17,12 @@ import {
   PICKAXE_EDITION_ADDRESS,
 } from "../const/contractAddresses";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 export default function Play() {
   const address = useAddress();
+  const router = useRouter();
+  const player = JSON.parse(router.query.player);
 
   const { contract: miningContract } = useContract(MINING_CONTRACT_ADDRESS);
   const { contract: characterContract } = useContract(
@@ -48,7 +51,7 @@ export default function Play() {
               marginTop: 8,
             }}
           >
-            <Shop pickaxeContract={pickaxeContract} />
+            <Shop pickaxeContract={pickaxeContract} player={player} />
           </div>
         </>
       ) : (

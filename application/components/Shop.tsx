@@ -3,33 +3,24 @@ import { EditionDrop } from "@thirdweb-dev/sdk";
 import React from "react";
 import styles from "../styles/Home.module.css";
 import ShopItem from "./ShopItem";
+import { NFT } from "@thirdweb-dev/sdk";
 
 type Props = {
   pickaxeContract: EditionDrop;
+  player: NFT;
 };
 
 /**
  * This component shows the:
  * - All of the available pickaxes from the edition drop and their price.
  */
-export default function Shop({ pickaxeContract }: Props) {
+export default function Shop({ pickaxeContract, player }: Props) {
   const { data: availablePickaxes } = useNFTs(pickaxeContract);
   const availableWinners = [
     {
       metadata: {
-        id: 1,
-        name: "ax",
-        url: "/penguin.gif",
-        game: "Splatoon3",
-        date: "Jan 2, 2023",
-        payout: "1 FIRE",
-        paid: true,
-      },
-    },
-    {
-      metadata: {
         id: 2,
-        name: "boo",
+        name: "유지민",
         url: "/cow.gif",
         game: "Splatoon3",
         date: "Feb 20, 2023",
@@ -39,7 +30,7 @@ export default function Shop({ pickaxeContract }: Props) {
     {
       metadata: {
         id: 3,
-        name: "caremy",
+        name: "ダークネス",
         url: "/duck.gif",
         game: "PUBG",
         date: "Feb 21, 2023",
@@ -49,7 +40,7 @@ export default function Shop({ pickaxeContract }: Props) {
     {
       metadata: {
         id: 4,
-        name: "daffie",
+        name: "鲤鱼",
         url: "/cute-girl.gif",
         game: "APEX",
         date: "Feb 22, 2023",
@@ -65,14 +56,24 @@ export default function Shop({ pickaxeContract }: Props) {
           <ShopItem
             pickaxeContract={pickaxeContract}
             item={p}
+            name={p.metadata.name}
             url={p.metadata.url}
             game={p.metadata.game}
             date={p.metadata.date}
             payout={p.metadata.payout}
-            paid={p.metadata.paid}
             key={p.metadata.id.toString()}
           />
         ))}
+        <ShopItem
+          pickaxeContract={pickaxeContract}
+          item={player}
+          name={player.metadata.name}
+          url={player.metadata.url}
+          game={player.metadata.game}
+          date={player.metadata.date}
+          payout={player.metadata.payout}
+          key={player.metadata.id.toString()}
+        />
       </div>
     </>
   );

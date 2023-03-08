@@ -32,7 +32,7 @@ const blue = {
   color: '#3e76d5',
 };
 
-export default function ShopItem({ item, pickaxeContract, url, date, game, payout, paid }: Props) {
+export default function ShopItem({ item, pickaxeContract, url, name, date, game, payout }: Props) {
 
   return (
     <div className={styles.nftBox} key={item.metadata.id.toString()}>
@@ -45,12 +45,13 @@ export default function ShopItem({ item, pickaxeContract, url, date, game, payou
           height={64}
         />
         <span style={avatarText}>
-          <span style={blue}>@</span> {item.metadata.name}
+          <span style={blue}>@</span> {name}
         </span>
       </div>
 
-      <h3>{item.metadata.game}</h3>
-      <h3>{item.metadata.date}</h3>
+      <h3>{game}</h3>
+      <h3>{payout}</h3>
+      <h3>{date}</h3>
 
       <div className={styles.smallMargin}>
         <Web3Button
@@ -58,10 +59,10 @@ export default function ShopItem({ item, pickaxeContract, url, date, game, payou
           contractAddress={PICKAXE_EDITION_ADDRESS}
           action={(contract) => console.log("Paid")}
           onSuccess={() => alert("Paid!")}
-          isDisabled={paid}
+          isDisabled={item.metadata.date}
           onError={(error) => alert(error)}
         >
-          { paid ? 'Paid' : 'Pay'} <b>{payout}</b>
+          {item.metadata.date ? 'Paid' : 'Pay'}
         </Web3Button>
       </div>
     </div>

@@ -17,74 +17,74 @@ export default function GamePlayers({ pickaxeContract }: Props) {
   const availableWinners = [
     {
       metadata: {
-        id: 1,
-        name: "ax",
+        id: '1',
+        name: "Anphex",
         url: "/penguin.gif",
         game: "Splatoon3",
-        date: "Jan 2, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 2,
+        id: '2',
         name: "boo",
         url: "/piskel.gif",
         game: "Splatoon3",
-        date: "Feb 20, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 3,
+        id: '3',
         name: "caremy",
         url: "/dragon.gif",
         game: "PUBG",
-        date: "Feb 21, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 4,
-        name: "daffie",
+        id: '4',
+        name: "dawg",
         url: "/pig.gif",
         game: "APEX",
-        date: "Feb 22, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 4,
-        name: "daffie",
+        id: '5',
+        name: "ethansmith2000",
         url: "/dragon2.gif",
         game: "APEX",
-        date: "Feb 22, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 4,
-        name: "daffie",
+        id: '6',
+        name: "Frothy",
         url: "/transformer.gif",
         game: "APEX",
-        date: "Feb 22, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 4,
-        name: "daffie",
+        id: '7',
+        name: "gami",
         url: "/transformer2.gif",
         game: "APEX",
-        date: "Feb 22, 2023",
+        payout: "1 FIRE",
       },
     },
     {
       metadata: {
-        id: 4,
-        name: "daffie",
+        id: '8',
+        name: "HUK",
         url: "/transformer3.gif",
         game: "APEX",
-        date: "Feb 22, 2023",
+        payout: "1 FIRE",
       },
     },
   ];

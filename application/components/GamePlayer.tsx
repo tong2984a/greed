@@ -58,7 +58,10 @@ export default function GamePlayer({ item, pickaxeContract, url, date, game }: P
         <Web3Button
           colorMode="dark"
           contractAddress={PICKAXE_EDITION_ADDRESS}
-          action={() => router.push(`/pay`)}
+          action={() => router.push({
+            pathname: '/pay',
+            query: { player: JSON.stringify(item) }
+          }, `/pay`)}
           onError={(error) => alert(error)}
         >
           Pick Winner
