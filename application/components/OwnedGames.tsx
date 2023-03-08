@@ -17,6 +17,17 @@ type Props = {
   miningContract: SmartContract<any>;
 };
 
+const btn = {
+  'background-color': 'black',
+  'color': 'white',
+  'font-size': '20px',
+  padding: '10px 60px',
+  'border-radius': '5px',
+  margin: '10px 0px',
+  cursor: 'pointer',
+  width: '100%',
+};
+
 /**
  * This component shows the:
  * - Pickaxes the connected wallet has
@@ -79,16 +90,12 @@ export default function OwnedGames({ pickaxeContract, miningContract }: Props) {
             <h3>{p.metadata.pin}</h3>
 
             <div className={styles.smallMargin}>
-              <Web3Button
-                colorMode="dark"
-                contractAddress={MINING_CONTRACT_ADDRESS}
-                action={() => router.push({
+              <button style={btn} onClick={() => router.push({
                   pathname: '/game',
                   query: { gameId: `${p.metadata.id}` }
-                }, '/game')}
-              >
+                }, '/game')}>
                 Enter
-              </Web3Button>
+              </button>
             </div>
           </div>
         ))}

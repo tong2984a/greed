@@ -39,7 +39,7 @@ export default function Play() {
     <div className={styles.container}>
       {pickaxeContract && tokenContract ? (
         <>
-          <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>Past Winners</h2>
+          <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>Winners</h2>
           <div
             style={{
               width: "100%",

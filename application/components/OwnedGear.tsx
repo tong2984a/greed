@@ -60,9 +60,8 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
     }
   }];
 
-  if (isLoading) {
-    return <LoadingSection />;
-  }
+  const currentDate = new Date();
+  const after7Daysdate=new Date(currentDate.setDate(currentDate.getDate() + 7));
 
   async function equip(id: string) {
     if (!address) return;
@@ -96,6 +95,7 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
             />
             <h3>{p.metadata.title}</h3>
             <h3>{p.metadata.pin}</h3>
+            <h3>{!p.metadata.button && after7Daysdate.toDateString()}</h3>
 
             <div className={styles.smallMargin}>
               {p.metadata.button &&

@@ -22,6 +22,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/penguin.gif",
         game: "Splatoon3",
         payout: "1 FIRE",
+        address: "0xa0e...9720"
       },
     },
     {
@@ -31,6 +32,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/piskel.gif",
         game: "Splatoon3",
         payout: "1 FIRE",
+        address: "0xbcd...4096"
       },
     },
     {
@@ -40,6 +42,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/dragon.gif",
         game: "PUBG",
         payout: "1 FIRE",
+        address: "0x71b...5788"
       },
     },
     {
@@ -49,6 +52,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/pig.gif",
         game: "APEX",
         payout: "1 FIRE",
+        address: "0xfab...694a"
       },
     },
     {
@@ -58,6 +62,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/dragon2.gif",
         game: "APEX",
         payout: "1 FIRE",
+        address: "0x1cb...c9ec"
       },
     },
     {
@@ -67,6 +72,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer.gif",
         game: "APEX",
         payout: "1 FIRE",
+        address: "0xdf3...7097"
       },
     },
     {
@@ -76,6 +82,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer2.gif",
         game: "APEX",
         payout: "1 FIRE",
+        address: "0xcd3...ce71"
       },
     },
     {
@@ -85,6 +92,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer3.gif",
         game: "APEX",
         payout: "1 FIRE",
+        address: "0x254...ec30"
       },
     },
   ];

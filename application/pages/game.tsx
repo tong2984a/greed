@@ -9,7 +9,7 @@ import CurrentGear from "../components/CurrentGear";
 import LoadingSection from "../components/LoadingSection";
 import OwnedGame from "../components/OwnedGame";
 import Rewards from "../components/Rewards";
-import GameWinners from "../components/GamePlayers";
+import GamePlayers from "../components/GamePlayers";
 import {
   CHARACTER_EDITION_ADDRESS,
   GOLD_GEMS_ADDRESS,
@@ -54,7 +54,7 @@ export default function Game() {
               gameId={router.query.gameId}
             />
           </div>
-          <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>Pick Winners</h2>
+          <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>Tournament</h2>
           <div
             style={{
               width: "100%",
@@ -66,7 +66,7 @@ export default function Game() {
               marginTop: 8,
             }}
           >
-            <GameWinners pickaxeContract={pickaxeContract} />
+            <GamePlayers pickaxeContract={pickaxeContract} />
           </div>
         </>
     </div>

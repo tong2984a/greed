@@ -16,6 +16,29 @@ type Props = {
   url: string;
 };
 
+const btn = {
+  'background-color': 'black',
+  'color': 'white',
+  'font-size': '20px',
+  padding: '10px 60px',
+  'border-radius': '5px',
+  margin: '10px 0px',
+  cursor: 'pointer',
+  width: '100%',
+};
+
+const disabledBtn = {
+  'background-color': 'black',
+  'color': 'white',
+  'font-size': '20px',
+  padding: '10px 60px',
+  'border-radius': '5px',
+  margin: '10px 0px',
+  width: '100%',
+  opacity: '0.4',
+  cursor: 'not-allowed',
+};
+
 const avatarDiv = {
   'text-align': 'center',
 };
@@ -54,16 +77,21 @@ export default function ShopItem({ item, pickaxeContract, url, name, date, game,
       <h3>{date}</h3>
 
       <div className={styles.smallMargin}>
+        { item.metadata.date ?
+        <button style={disabledBtn} disabled={true} onClick={(contract) => console.log("Paid")}>
+          Paid
+        </button>
+        :
         <Web3Button
           colorMode="dark"
           contractAddress={PICKAXE_EDITION_ADDRESS}
           action={(contract) => console.log("Paid")}
           onSuccess={() => alert("Paid!")}
-          isDisabled={item.metadata.date}
           onError={(error) => alert(error)}
         >
-          {item.metadata.date ? 'Paid' : 'Pay'}
+          Pay
         </Web3Button>
+        }
       </div>
     </div>
   );

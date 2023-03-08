@@ -17,6 +17,17 @@ type Props = {
   url: string;
 };
 
+const btn = {
+  'background-color': 'black',
+  'color': 'white',
+  'font-size': '20px',
+  padding: '10px 60px',
+  'border-radius': '5px',
+  margin: '10px 0px',
+  cursor: 'pointer',
+  width: '100%',
+};
+
 const avatarDiv = {
   'text-align': 'center',
 };
@@ -51,21 +62,15 @@ export default function GamePlayer({ item, pickaxeContract, url, date, game }: P
         </span>
       </div>
 
-      <h3>&nbsp;</h3>
-      <h3>&nbsp;</h3>
+      <h3>{item.metadata.address}</h3>
 
       <div className={styles.smallMargin}>
-        <Web3Button
-          colorMode="dark"
-          contractAddress={PICKAXE_EDITION_ADDRESS}
-          action={() => router.push({
+        <button style={btn} onClick={() => router.push({
             pathname: '/pay',
             query: { player: JSON.stringify(item) }
-          }, `/pay`)}
-          onError={(error) => alert(error)}
-        >
-          Pick Winner
-        </Web3Button>
+          }, `/pay`)}>
+          Pick
+        </button>
       </div>
     </div>
   );

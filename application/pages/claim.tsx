@@ -51,7 +51,7 @@ export default function Play() {
       <hr className={`${styles.divider} ${styles.bigSpacerTop}`} />
 
       <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>
-        Your Rewards
+        Your are playing
       </h2>
       <div
         style={{
