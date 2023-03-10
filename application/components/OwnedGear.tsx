@@ -5,11 +5,15 @@ import {
   Web3Button,
 } from "@thirdweb-dev/react";
 import { EditionDrop, SmartContract } from "@thirdweb-dev/sdk";
-import React from "react";
+import { ethers } from "ethers";
+import { React, useState } from 'react';
+import { DEMO } from "../const/demo";
 import LoadingSection from "./LoadingSection";
 import styles from "../styles/Home.module.css";
 import { MINING_CONTRACT_ADDRESS } from "../const/contractAddresses";
 import Image from 'next/image';
+import Game from '../const/Game.json';
+import { deployed } from '../const/config';
 
 type Props = {
   pickaxeContract: EditionDrop;
@@ -22,11 +26,14 @@ type Props = {
  * - A stake button underneath each of them to equip it
  */
 export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
+  const [claimedOn, setClaimedOn] = useState(false);
   const address = useAddress();
   const { data: ownedPickaxes, isLoading } = useOwnedNFTs(
     pickaxeContract,
     address
   );
+  const currentDate = new Date();
+  const after7Daysdate=new Date(currentDate.setDate(currentDate.getDate() + 7));
   const tournaments = [{
     metadata: {
       id: 1,
@@ -39,47 +46,49 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
       id: 2,
       image: "/pubg.jpg",
       title: "flamincat's Room",
-      pin: '0.08 USDC',
-      button: 'Claim',
+      rewards: '0.08 USDC',
     },
   }, {
     metadata: {
       id: 3,
       image: "/lol.jpg",
       title: "AnEnderNon's Room",
-      pin: '1.02 MATIC',
-      button: 'Claim',
+      rewards: '1.02 MATIC',
     },
   }, {
     metadata: {
       id: 4,
       image: "/apex.jpg",
       title: "justinjohn-03's Room",
-      pin: '1 FIRE',
-      button: 'Claim',
+      rewards: '1 FIRE',
     }
   }];
 
-  const currentDate = new Date();
-  const after7Daysdate=new Date(currentDate.setDate(currentDate.getDate() + 7));
-
-  async function equip(id: string) {
-    if (!address) return;
-
-    // The contract requires approval to be able to transfer the pickaxe
-    const hasApproval = await pickaxeContract.isApproved(
-      address,
-      MINING_CONTRACT_ADDRESS
-    );
-
-    if (!hasApproval) {
-      await pickaxeContract.setApprovalForAll(MINING_CONTRACT_ADDRESS, true);
+  async function claimRewards() {
+    if (!DEMO) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+  
+      try {
+        const contract = new ethers.Contract(deployed.gameAddress, Game.abi, signer);
+        const transaction = await contract.withdrawRewards();
+        const tx = await transaction.wait();
+        const event = tx.events[0];
+        console.log({ event });
+      } catch (error) {
+        if (error.code === -32603) {
+          console.error({ title: 'Error - Please check your wallet and try again.', message: 'It is very possible that the RPC endpoint you are using to connect to the network with MetaMask is congested or experiencing technical problems' });
+          throw new Error('Error - Please check your wallet and try again.', { cause: 'It is very possible that the RPC endpoint you are using to connect to the network with MetaMask is congested or experiencing technical problems' });
+        } else {
+          console.error({ title: 'Error - Please check your wallet and try again.', message: error.message });
+          throw new Error('Error - Please check your wallet and try again.', { cause: error.message });
+        }
+      }
     }
-
-    await miningContract.call("stake", id);
-
-    // Refresh the page
-    window.location.reload();
+    const today = new Date();
+    setClaimedOn(today.toLocaleDateString("en-US", { month: 'short' })
+      + " " + today.toLocaleDateString("en-US", { day: 'numeric' })
+      + ", " + today.toLocaleDateString("en-US", { year: 'numeric' }));
   }
 
   return (
@@ -89,22 +98,25 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
           <div className={styles.nftBox} key={p.metadata.id.toString()}>
             <Image
               src={p.metadata.image}
-              className={`${styles.nftMedia} ${styles.spacerTop} ${p.metadata.button && styles.grayscale}`}
+              className={`${styles.nftMedia} ${styles.spacerTop} ${p.metadata.rewards && styles.grayscale}`}
               width={256}
               height={256}
             />
             <h3>{p.metadata.title}</h3>
             <h3>{p.metadata.pin}</h3>
-            <h3>{!p.metadata.button && after7Daysdate.toDateString()}</h3>
+            <h3>{p.metadata.rewards}</h3>
+            {(p.metadata.rewards && claimedOn) && <h3>{claimedOn}</h3>}
 
             <div className={styles.smallMargin}>
-              {p.metadata.button &&
+              { p.metadata.rewards &&
                 <Web3Button
                   colorMode="dark"
-                  contractAddress={MINING_CONTRACT_ADDRESS}
-                  action={() => equip(p.metadata.id)}
+                  contractAddress={deployed.gameAddress}
+                  contractAbi={Game.abi}
+                  action={() => claimRewards()}
+                  isDisabled={claimedOn}
                 >
-                  Claim
+                  { claimedOn ? 'Claimed' : 'Claim' }
                 </Web3Button>
               }
             </div>
