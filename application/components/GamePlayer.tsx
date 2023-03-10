@@ -18,26 +18,26 @@ type Props = {
 };
 
 const btn = {
-  'background-color': 'black',
+  'backgroundColor': 'black',
   'color': 'white',
-  'font-size': '20px',
+  'fontSize': '20px',
   padding: '10px 60px',
-  'border-radius': '5px',
+  'borderRadius': '5px',
   margin: '10px 0px',
   cursor: 'pointer',
   width: '100%',
 };
 
 const avatarDiv = {
-  'text-align': 'center',
+  'textAlign': 'center',
 };
 
 const avatarImg = {
-  'vertical-align': 'middle',
+  'verticalAlign': 'middle',
 };
 
 const avatarText = {
-  'vertical-align': 'middle',
+  'verticalAlign': 'middle',
 };
 
 const blue = {
@@ -46,6 +46,7 @@ const blue = {
 
 export default function GamePlayer({ item, pickaxeContract, url, date, game }: Props) {
   const router = useRouter();
+  const playerAddress = [item.metadata.address.substr(1, 4), item.metadata.address.substr(38, 4)].join('...');
 
   return (
     <div className={styles.nftBox} key={item.metadata.id.toString()}>
@@ -62,7 +63,7 @@ export default function GamePlayer({ item, pickaxeContract, url, date, game }: P
         </span>
       </div>
 
-      <h3>{item.metadata.address}</h3>
+      <h3>{playerAddress}</h3>
 
       <div className={styles.smallMargin}>
         <button style={btn} onClick={() => router.push({

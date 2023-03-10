@@ -18,11 +18,11 @@ type Props = {
 };
 
 const btn = {
-  'background-color': 'black',
+  'backgroundColor': 'black',
   'color': 'white',
-  'font-size': '20px',
+  'fontSize': '20px',
   padding: '10px 60px',
-  'border-radius': '5px',
+  'borderRadius': '5px',
   margin: '10px 0px',
   cursor: 'pointer',
   width: '100%',

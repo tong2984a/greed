@@ -22,7 +22,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/penguin.gif",
         game: "Splatoon3",
         payout: "1 FIRE",
-        address: "0xa0e...9720"
+        address: "0xa0ee7a142d267c1f36714e4a8f75612f20a79720"
       },
     },
     {
@@ -32,7 +32,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/piskel.gif",
         game: "Splatoon3",
         payout: "1 FIRE",
-        address: "0xbcd...4096"
+        address: "0xbcd4042de499d14e55001ccbb24a551f3b954096"
       },
     },
     {
@@ -42,7 +42,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/dragon.gif",
         game: "PUBG",
         payout: "1 FIRE",
-        address: "0x71b...5788"
+        address: "0x71be63f3384f5fb98995898a86b02fb2426c5788"
       },
     },
     {
@@ -52,7 +52,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/pig.gif",
         game: "APEX",
         payout: "1 FIRE",
-        address: "0xfab...694a"
+        address: "0xfabb0ac9d68b0b445fb7357272ff202c5651694a"
       },
     },
     {
@@ -62,7 +62,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/dragon2.gif",
         game: "APEX",
         payout: "1 FIRE",
-        address: "0x1cb...c9ec"
+        address: "0x1cbd3b2770909d4e10f157cabc84c7264073c9ec"
       },
     },
     {
@@ -72,7 +72,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer.gif",
         game: "APEX",
         payout: "1 FIRE",
-        address: "0xdf3...7097"
+        address: "0xdf3e18d64bc6a983f673ab319ccae4f1a57c7097"
       },
     },
     {
@@ -82,7 +82,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer2.gif",
         game: "APEX",
         payout: "1 FIRE",
-        address: "0xcd3...ce71"
+        address: "0xcd3b766ccdd6ae721141f452c550ca635964ce71"
       },
     },
     {
@@ -92,7 +92,7 @@ export default function GamePlayers({ pickaxeContract }: Props) {
         url: "/transformer3.gif",
         game: "APEX",
         payout: "1 FIRE",
-        address: "0x254...ec30"
+        address: "0x2546bcd3c84621e976d8185a91a922ae77ecec30"
       },
     },
   ];
