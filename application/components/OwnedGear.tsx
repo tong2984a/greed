@@ -44,9 +44,10 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
   }, {
     metadata: {
       id: 2,
-      image: "/pubg.jpg",
-      title: "flamincat's Room",
-      rewards: '0.08 USDC',
+      image: "/bunny.png",
+      title: "Andrew's Room",
+      pin: '',
+      link: 'https://microstudio.io/a3046/tutorialcreateagame/ZMRBSG5H/',
     },
   }, {
     metadata: {
@@ -58,6 +59,13 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
   }, {
     metadata: {
       id: 4,
+      image: "/pubg.jpg",
+      title: "flamincat's Room",
+      rewards: '0.08 USDC',
+    },
+  }, {
+    metadata: {
+      id: 5,
       image: "/apex.jpg",
       title: "justinjohn-03's Room",
       rewards: '1 FIRE',
@@ -104,6 +112,7 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
             />
             <h3>{p.metadata.title}</h3>
             <h3>{p.metadata.pin}</h3>
+            { p.metadata.link && <h3><a href={p.metadata.link}>CLICK TO PLAY</a></h3>}
             <h3>{p.metadata.rewards}</h3>
             {(p.metadata.rewards && claimedOn) && <h3>{claimedOn}</h3>}
 
