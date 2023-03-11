@@ -52,20 +52,28 @@ export default function OwnedGear({ pickaxeContract, miningContract }: Props) {
   }, {
     metadata: {
       id: 3,
+      image: "/mahjongsoul.png",
+      title: "Sakura's Room",
+      pin: 'ROOM #96532',
+      link: 'https://mahjongsoul.game.yo-star.com/',
+    },
+  }, {
+    metadata: {
+      id: 4,
       image: "/lol.jpg",
       title: "AnEnderNon's Room",
       rewards: '1.02 MATIC',
     },
   }, {
     metadata: {
-      id: 4,
+      id: 5,
       image: "/pubg.jpg",
       title: "flamincat's Room",
       rewards: '0.08 USDC',
     },
   }, {
     metadata: {
-      id: 5,
+      id: 6,
       image: "/apex.jpg",
       title: "justinjohn-03's Room",
       rewards: '1 FIRE',
