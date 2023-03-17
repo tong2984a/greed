@@ -1,0 +1,70 @@
+{
+  "usdc_1_check_wallets" :
+    {
+      "player1Address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "player1Name" : "Hardhat#1",
+      "player2Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player2Name" : "Hardhat#2",
+      "player3Address" : "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "player3Name" : "Hardhat#9",
+      "player4Address" : "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "player4Name" : "Hardhat#12",
+      "player5Address" : "0x3B67b2e6806233C79b109577B361E9d35c0cd397",
+      "player5Name" : "SelfServiceNFT",
+      "player6Address" : "0x936A93DcaD18374Cf1912a1f43e9af8fBd96b874",
+      "player6Name" : "Greed"
+    },
+  "usdc_2_approve" :
+    {
+      "player1Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player1Name" : "Hardhat#2",
+      "value_in_USDC" : "1"
+    },
+  "usdc_3_fund" :
+    {
+      "player1Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player1Name" : "Hardhat#2",
+      "value_in_USDC" : "1"
+    },
+  "usdc_4_reward" :
+    {
+      "player1Address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "player1Name" : "Hardhat#1",
+      "player2Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player2Name" : "Hardhat#2",
+      "value_in_USDC" : "1"
+    },
+  "game_1_check_wallet" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "player1Address" : "0xdd2fd4581271e230360230f9337d5c0430bf44c0",
+      "player1Name" : "Hardhat#18",
+      "player2Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player2Name" : "Hardhat#19"
+    },
+  "game_2_makeDeposit" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "value_in_ether" : 0.1
+    },
+  "game_3_makeBet" :
+    {
+      "player1Address" : "0xdd2fd4581271e230360230f9337d5c0430bf44c0",
+      "player1Name" : "Hardhat#18",
+      "value_in_ether" : 0.1
+    },
+  "game_4_payout" :
+    {
+      "hostAddress" : "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "hostName" : "Hardhat#1",
+      "player1Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player1Name" : "Hardhat#19"
+    },
+  "game_5_withdraw" :
+    {
+      "player1Address" : "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199",
+      "player1Name" : "Hardhat#19"
+    }
+}

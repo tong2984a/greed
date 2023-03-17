@@ -8,7 +8,11 @@ import { DEMO } from "../const/demo";
 import styles from "../styles/Home.module.css";
 import Image from 'next/image';
 import Game from '../const/Game.json';
-import { deployed } from '../const/config';
+import TokenFarm from '../const/TokenFarm.json';
+import USDC from '../const/USDC.json';
+import { deployed, chains } from '../const/config';
+const { gameAddress, tokenFarmAddress } = deployed;
+const usdcContractAddress = chains.mumbai.usdc.contractAddress;
 
 type Props = {
   item: NFT;
@@ -58,16 +62,25 @@ export default function ShopItem({ item, url, name, game, payout }: Props) {
   const [paidOn, setPaidOn] = useState(item.metadata.date);
 
   async function awardWinner(playerAddr) {
-    if (!DEMO) {
+    if (DEMO) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
   
       try {
-        const contract = new ethers.Contract(deployed.gameAddress, Game.abi, signer);
-        const transaction = await contract.awardWinner(playerAddr);
-        const tx = await transaction.wait();
-        const event = tx.events[0];
-        console.log({ event });
+        // const contract = new ethers.Contract(gameAddress, Game.abi, signer);
+        // const transaction = await contract.awardWinner(playerAddr);
+        const contract = new ethers.Contract(tokenFarmAddress, TokenFarm.abi, signer);
+        let transaction = await contract.ReceiveFund();
+        let tx = await transaction.wait();
+        console.log(tx.events);
+        console.log('Receive Fund to contract owner');
+        
+        const amount = ethers.utils.parseUnits('1', 6);
+        const erc20Contract = new ethers.Contract(usdcContractAddress, USDC.abi, signer);
+        transaction = await erc20Contract.connect(signer).transfer(playerAddr, amount);
+        tx = await transaction.wait();
+        console.log(tx.events);
+        console.log('transfer from signer to ', signer, playerAddr);
       } catch (error) {
         if (error.code === -32603) {
           console.error({ title: 'Error - Please check your wallet and try again.', message: 'It is very possible that the RPC endpoint you are using to connect to the network with MetaMask is congested or experiencing technical problems' });
@@ -111,7 +124,7 @@ export default function ShopItem({ item, url, name, game, payout }: Props) {
         :
         <Web3Button
           colorMode="dark"
-          contractAddress={deployed.gameAddress}
+          contractAddress={gameAddress}
           contractAbi={Game.abi}
           action={() => awardWinner(item.metadata.address)}
           onError={(error) => alert("Something went wrong!")}
