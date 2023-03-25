@@ -1,4 +1,74 @@
 {
+  "fire_1_check_wallets" :
+    {
+      "player1Address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "player1Name" : "Hardhat#1",
+      "player2Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player2Name" : "Hardhat#2",
+      "player3Address" : "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "player3Name" : "Hardhat#9",
+      "player4Address" : "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "player4Name" : "Hardhat#12",
+      "player5Address" : "0x3B67b2e6806233C79b109577B361E9d35c0cd397",
+      "player5Name" : "SelfServeNFT",
+      "player6Address" : "0x936A93DcaD18374Cf1912a1f43e9af8fBd96b874",
+      "player6Name" : "Greed"
+    },
+  "fire_2_stake" :
+    {
+      "player1Address" : "0x936A93DcaD18374Cf1912a1f43e9af8fBd96b874",
+      "player1Name" : "Greed",
+      "value_in_USDC" : "100"
+    },
+  "fire_3_transfer_fire" :
+    {
+      "player1Address" : "0x3B67b2e6806233C79b109577B361E9d35c0cd397",
+      "player1Name" : "SelfServeNFT",
+      "value_in_FIRE" : "10000"
+    },
+  "fire_4_issue_fire" :
+    {
+      "player1Address" : "0x3B67b2e6806233C79b109577B361E9d35c0cd397",
+      "player1Name" : "SelfServeNFT",
+      "player2Address" : "0x936A93DcaD18374Cf1912a1f43e9af8fBd96b874",
+      "player2Name" : "Greed"
+    },
+  "dapp_1_check_wallets" :
+    {
+      "player1Address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      "player1Name" : "Hardhat#1",
+      "player2Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player2Name" : "Hardhat#2",
+      "player3Address" : "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "player3Name" : "Hardhat#9",
+      "player4Address" : "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "player4Name" : "Hardhat#12",
+      "player5Address" : "0x3B67b2e6806233C79b109577B361E9d35c0cd397",
+      "player5Name" : "SelfServiceNFT",
+      "player6Address" : "0x936A93DcaD18374Cf1912a1f43e9af8fBd96b874",
+      "player6Name" : "Greed"
+    },
+  "dapp_2_transfer_dai" :
+    {
+      "player1Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player1Name" : "Hardhat#2",
+      "value_in_Dai" : "1"
+    },
+  "dapp_3_stake_dapp" :
+    {
+      "player1Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player1Name" : "Hardhat#2",
+      "value_in_Dai" : "1"
+    },
+  "dapp_4_transfer_dapp" :
+    {
+      "value_in_Dapp" : "10000"
+    },
+  "dapp_5_issue_dapp" :
+    {
+      "player1Address" : "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+      "player1Name" : "Hardhat#2"
+    },
   "usdc_1_check_wallets" :
     {
       "player1Address" : "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
