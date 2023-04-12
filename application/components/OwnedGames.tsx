@@ -11,6 +11,7 @@ import styles from "../styles/Home.module.css";
 import { MINING_CONTRACT_ADDRESS } from "../const/contractAddresses";
 import Image from 'next/image';
 import { useRouter } from "next/router";
+import OwnedGameEnroll from "./OwnedGameEnroll";
 
 type Props = {
   pickaxeContract: EditionDrop;
@@ -78,26 +79,27 @@ export default function OwnedGames({ pickaxeContract, miningContract }: Props) {
     <>
       <div className={styles.nftBoxGrid}>
         {tournaments?.map((p) => (
-          <div className={styles.nftBox} key={p.metadata.id.toString()}>
-            <Image
-              src={p.metadata.image}
-              className={`${styles.nftMedia} ${styles.spacerTop}`}
-              width={256}
-              height={256}
-            />
-            <h3>{p.metadata.date}</h3>
-            <h3>{p.metadata.title}</h3>
-            <h3>{p.metadata.pin}</h3>
+          <OwnedGameEnroll  key={p.metadata.id.toString()} tournament={p.metadata} />
+          // <div className={styles.nftBox} key={p.metadata.id.toString()}>
+          //   <Image
+          //     src={p.metadata.image}
+          //     className={`${styles.nftMedia} ${styles.spacerTop}`}
+          //     width={256}
+          //     height={256}
+          //   />
+          //   <h3>{p.metadata.date}</h3>
+          //   <h3>{p.metadata.title}</h3>
+          //   <h3>{p.metadata.pin}</h3>
 
-            <div className={styles.smallMargin}>
-              <button style={btn} onClick={() => router.push({
-                  pathname: '/game',
-                  query: { gameId: `${p.metadata.id}` }
-                }, '/game')}>
-                Enter
-              </button>
-            </div>
-          </div>
+          //   <div className={styles.smallMargin}>
+          //     <button style={btn} onClick={() => router.push({
+          //         pathname: '/game',
+          //         query: { gameId: `${p.metadata.id}` }
+          //       }, '/game')}>
+          //       Enter
+          //     </button>
+          //   </div>
+          // </div>
         ))}
       </div>
     </>

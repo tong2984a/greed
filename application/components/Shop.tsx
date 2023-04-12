@@ -14,8 +14,13 @@ type Props = {
  * This component shows the:
  * - All of the available pickaxes from the edition drop and their price.
  */
-export default function Shop({ pickaxeContract, player }: Props) {
-  const { data: availablePickaxes } = useNFTs(pickaxeContract);
+export default function Shop(props) {
+  const playerAddress = props.playerAddress;
+  const screenName = props.screenName;
+  const gameId = props.gameId;
+  const player = props.player;
+  
+  // const { data: availablePickaxes } = useNFTs(pickaxeContract);
   const availableWinners = [
     {
       metadata: {
@@ -54,22 +59,28 @@ export default function Shop({ pickaxeContract, player }: Props) {
       <div className={styles.nftBoxGrid}>
         {availableWinners?.map((p) => (
           <ShopItem
-            pickaxeContract={pickaxeContract}
+            // pickaxeContract={pickaxeContract}
             item={p}
             name={p.metadata.name}
+            playerAddress={p.metadata.address}
+            screenName={p.metadata.name}
             url={p.metadata.url}
             game={p.metadata.game}
+            gameId={gameId}
             date={p.metadata.date}
             payout={p.metadata.payout}
             key={p.metadata.id.toString()}
           />
         ))}
         <ShopItem
-          pickaxeContract={pickaxeContract}
+          // pickaxeContract={pickaxeContract}
           item={player}
           name={player.metadata.name}
+          playerAddress={playerAddress}
+          screenName={screenName}
           url={player.metadata.url}
           game={player.metadata.game}
+          gameId={gameId}
           date={player.metadata.date}
           payout={player.metadata.payout}
           key={player.metadata.id.toString()}

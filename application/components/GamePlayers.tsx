@@ -1,6 +1,6 @@
 import { useNFTs } from "@thirdweb-dev/react";
 import { EditionDrop } from "@thirdweb-dev/sdk";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import GamePlayer from "./GamePlayer";
 
@@ -12,8 +12,8 @@ type Props = {
  * This component shows the:
  * - All of the available pickaxes from the edition drop and their price.
  */
-export default function GamePlayers({ pickaxeContract }: Props) {
-  const { data: availablePickaxes } = useNFTs(pickaxeContract);
+export default function GamePlayers() {
+  // const { data: availablePickaxes } = useNFTs(pickaxeContract);
   const availableWinners = [
     {
       metadata: {
@@ -102,8 +102,9 @@ export default function GamePlayers({ pickaxeContract }: Props) {
       <div className={styles.nftBoxGrid}>
         {availableWinners?.map((p) => (
           <GamePlayer
-            pickaxeContract={pickaxeContract}
+            // pickaxeContract={pickaxeContract}
             item={p}
+            itemId={p.metadata.id}
             url={p.metadata.url}
             game={p.metadata.game}
             date={p.metadata.date}

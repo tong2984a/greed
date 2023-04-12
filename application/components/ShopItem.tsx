@@ -58,7 +58,7 @@ const blue = {
   color: '#3e76d5',
 };
 
-export default function ShopItem({ item, url, name, game, payout }: Props) {
+export default function ShopItem({ item, url, name, playerAddress, screenName, game, gameId, payout }: Props) {
   const [paidOn, setPaidOn] = useState(item.metadata.date);
 
   async function awardWinner(playerAddr) {
@@ -69,18 +69,18 @@ export default function ShopItem({ item, url, name, game, payout }: Props) {
       try {
         // const contract = new ethers.Contract(gameAddress, Game.abi, signer);
         // const transaction = await contract.awardWinner(playerAddr);
-        const contract = new ethers.Contract(tokenFarmAddress, TokenFarm.abi, signer);
-        let transaction = await contract.ReceiveFund();
-        let tx = await transaction.wait();
-        console.log(tx.events);
-        console.log('Receive Fund to contract owner');
+        // const contract = new ethers.Contract(tokenFarmAddress, TokenFarm.abi, signer);
+        //let transaction = await contract.ReceiveFund();
+        //let tx = await transaction.wait();
         
-        const amount = ethers.utils.parseUnits('1', 6);
-        const erc20Contract = new ethers.Contract(usdcContractAddress, USDC.abi, signer);
-        transaction = await erc20Contract.connect(signer).transfer(playerAddr, amount);
-        tx = await transaction.wait();
-        console.log(tx.events);
-        console.log('transfer from signer to ', signer, playerAddr);
+        // const amount = ethers.utils.parseUnits('1', 6);
+        // const erc20Contract = new ethers.Contract(usdcContractAddress, USDC.abi, signer);
+        // transaction = await erc20Contract.connect(signer).transfer(playerAddr, amount);
+        // tx = await transaction.wait();
+
+        const gameContract = new ethers.Contract(gameAddress, Game.abi, signer);
+        let transaction = await gameContract.connect(signer).declareWinner(gameId, playerAddr);
+        await transaction.wait();
       } catch (error) {
         if (error.code === -32603) {
           console.error({ title: 'Error - Please check your wallet and try again.', message: 'It is very possible that the RPC endpoint you are using to connect to the network with MetaMask is congested or experiencing technical problems' });
@@ -108,7 +108,7 @@ export default function ShopItem({ item, url, name, game, payout }: Props) {
           height={64}
         />
         <span style={avatarText}>
-          <span style={blue}>@</span> {name}
+          <span style={blue}>@</span> {screenName}
         </span>
       </div>
 
@@ -126,7 +126,7 @@ export default function ShopItem({ item, url, name, game, payout }: Props) {
           colorMode="dark"
           contractAddress={gameAddress}
           contractAbi={Game.abi}
-          action={() => awardWinner(item.metadata.address)}
+          action={() => awardWinner(playerAddress)}
           onError={(error) => alert("Something went wrong!")}
         >
           Pay

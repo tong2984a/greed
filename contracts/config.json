@@ -82,19 +82,19 @@
         }
     },
     "deployed": {
-        "tokenFarmAddress": "0x321f9E8A5EF5D1A862d7f91D0415f39b8e957B2E",
-        "dappFarmAddress": "0x1B7935395800A67224e79223412f228aC3bc933B",
-        "fireFarmAddress": "0x90ADa97c5913c2383301E1b52dE962f19387122C",
-        "dappTokenAddress": "0xa6e055D3ab0Bb7Bc022579f587b9AC36D13b934F",
-        "daiTokenAddress": "0x443a80d2bBF15A82e51B1af1ffDC0E18fb6cc8ec",
-        "fireTokenAddress": "0x9D58923733C595fF7C7C05Cd1b192ddc399D2FE8",
+        "tokenFarmAddress": "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+        "dappFarmAddress": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+        "fireFarmAddress": "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+        "dappTokenAddress": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "daiTokenAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "fireTokenAddress": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
         "envChain": {
-            "name": "mumbai",
-            "id": "0x13881"
+            "name": "localhost",
+            "id": "0x539"
         },
         "contract_owner": {
-            "name": "SelfServeNFT",
-            "address": "0x3B67b2e6806233C79b109577B361E9d35c0cd397"
+            "name": "hardhat1",
+            "address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8"
         }
     }
 }

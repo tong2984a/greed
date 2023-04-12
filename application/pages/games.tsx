@@ -21,16 +21,16 @@ import styles from "../styles/Home.module.css";
 export default function Play() {
   const address = useAddress();
 
-  const { contract: miningContract } = useContract(MINING_CONTRACT_ADDRESS);
-  const { contract: characterContract } = useContract(
-    CHARACTER_EDITION_ADDRESS,
-    "edition-drop"
-  );
-  const { contract: pickaxeContract } = useContract(
-    PICKAXE_EDITION_ADDRESS,
-    "edition-drop"
-  );
-  const { contract: tokenContract } = useContract(GOLD_GEMS_ADDRESS, "token");
+  // const { contract: miningContract } = useContract(MINING_CONTRACT_ADDRESS);
+  // const { contract: characterContract } = useContract(
+  //   CHARACTER_EDITION_ADDRESS,
+  //   "edition-drop"
+  // );
+  // const { contract: pickaxeContract } = useContract(
+  //   PICKAXE_EDITION_ADDRESS,
+  //   "edition-drop"
+  // );
+  // const { contract: tokenContract } = useContract(GOLD_GEMS_ADDRESS, "token");
 
   return (
     <div className={styles.container}>
@@ -49,8 +49,8 @@ export default function Play() {
         }}
       >
         <OwnedGames
-          pickaxeContract={pickaxeContract}
-          miningContract={miningContract}
+//          pickaxeContract={pickaxeContract}
+  //        miningContract={miningContract}
         />
       </div>
     </div>

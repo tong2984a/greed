@@ -23,22 +23,24 @@ export default function Play() {
   const address = useAddress();
   const router = useRouter();
   const player = JSON.parse(router.query.player);
+  const gameId = router.query.gameId;
+  const playerAddress = router.query.playerAddress;
+  const screenName = router.query.screenName;
 
-  const { contract: miningContract } = useContract(MINING_CONTRACT_ADDRESS);
-  const { contract: characterContract } = useContract(
-    CHARACTER_EDITION_ADDRESS,
-    "edition-drop"
-  );
-  const { contract: pickaxeContract } = useContract(
-    PICKAXE_EDITION_ADDRESS,
-    "edition-drop"
-  );
-  const { contract: tokenContract } = useContract(GOLD_GEMS_ADDRESS, "token");
+  // const { contract: miningContract } = useContract(MINING_CONTRACT_ADDRESS);
+  // const { contract: characterContract } = useContract(
+  //   CHARACTER_EDITION_ADDRESS,
+  //   "edition-drop"
+  // );
+  // const { contract: pickaxeContract } = useContract(
+  //   PICKAXE_EDITION_ADDRESS,
+  //   "edition-drop"
+  // );
+  // const { contract: tokenContract } = useContract(GOLD_GEMS_ADDRESS, "token");
 
   return (
     <div className={styles.container}>
-      {pickaxeContract && tokenContract ? (
-        <>
+      
           <h2 className={`${styles.noGapTop} ${styles.noGapBottom}`}>Pay Your Winners</h2>
           <div
             style={{
@@ -51,12 +53,10 @@ export default function Play() {
               marginTop: 8,
             }}
           >
-            <Shop pickaxeContract={pickaxeContract} player={player} />
+            <Shop //pickaxeContract={pickaxeContract} 
+            player={player} playerAddress={playerAddress} screenName={screenName} gameId={gameId}
+            />
           </div>
-        </>
-      ) : (
-        <LoadingSection />
-      )}
     </div>
   );
 }
