@@ -82,16 +82,16 @@
         }
     },
     "deployed": {
-        "dappTokenAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-        "daiTokenAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-        "gameAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "dappTokenAddress": "0x4bbA934daE70E655F45bD6C7B5988Db3B0312fD4",
+        "daiTokenAddress": "0x42A5195f431d34c9373B2504639a88CEfD00768f",
+        "gameAddress": "0x8969c2ba517e5ab42D2d016FF0A82bf5Dd420f11",
         "envChain": {
-            "name": "localhost",
-            "id": "0x539"
+            "name": "mumbai",
+            "id": "0x13881"
         },
         "contract_owner": {
-            "name": "hardhat1",
-            "address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8"
+            "name": "SelfServeNFT",
+            "address": "0x3B67b2e6806233C79b109577B361E9d35c0cd397"
         }
     }
 }
