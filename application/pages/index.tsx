@@ -15,12 +15,6 @@ const Home: NextPage = () => {
       </button>
       <button
         className={`${styles.mainButton} ${styles.spacerBottom}`}
-        onClick={() => router.push(`/claim`)}
-      >
-        Claim Rewards
-      </button>
-      <button
-        className={`${styles.mainButton} ${styles.spacerBottom}`}
         onClick={() => router.push(`/games`)}
       >
         Pay Followers
